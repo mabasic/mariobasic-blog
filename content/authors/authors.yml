@@ -1,17 +1,16 @@
-- name: Dennis Brotzky
+- name: Mario Bašić
   bio: |
-    Written by You. This is where your author bio lives. Share your work, your
-    joys and of course, your Twitter handle.
-  avatar: ./avatars/dennis-brotzky.jpg
+    Full stack web developer, author of the book “A Collection of Laravel Tutorials” & creator of open-source Laravel packages.
+  avatar: ./avatars/mario.jpeg
   featured: true
   social:
     - name: github
-      url: https://github.com
-    - name: twitter
-      url: https://github.com
-    - name: instagram
-      url: https://github.com
-    - name: dribbble
-      url: https://github.com
+      url: https://github.com/mabasic
     - name: linkedin
-      url: https://github.com
+      url: https://linkedin.com/in/mabasic
+    - name: twitter
+      url: https://twitter.com/BasicMario
+    - name: facebook
+      url: https://www.facebook.com/shockmario
+    - name: instagram
+      url: https://www.instagram.com/shockmario

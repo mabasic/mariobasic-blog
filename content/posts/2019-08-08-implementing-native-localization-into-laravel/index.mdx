@@ -1,0 +1,48 @@
+---
+title: Implementing native route localization into Laravel
+author: Mario Bašić
+date: 2019-08-08
+hero: ./images/frankie-guarini-ksALNcBHe_E-unsplash.jpg
+excerpt: I have an idea for the next version of Loki. Loki is my localization package for Laravel. I'm thinking of doing a deeper integration of Loki into Laravel.
+---
+
+I have an idea foe the next version of loki. Loki is my localization package for Laravel.
+
+I'm thinking of doing a deeper integration of Loki into Laravel. Maybe I can extend the current route class with my own which will have appropriate methods and functionality.
+
+Then what you could do is:
+
+```php
+Route::get('/about', 'PageController@about')->name('about')->locale('en');
+```
+
+This create a route for the english locale for the about page.
+
+Then for a different language:
+
+```php
+Route::get('/o-nama', 'PageController@about')->name('about')->locale('hr');
+```
+
+The en about url would be `/about` and the hr about url would be `/o-nama`.
+
+Or you could not use localized urls and just add the locale to the route
+
+```php
+Route::get('/about', 'PageController@about')->name('about')->locale(['en', 'hr']);
+```
+
+Then the urls would be:
+
+```
+/about
+/hr/about
+```
+
+If you would to disable hide default locale then the en url would be:
+
+```
+/en/about
+```
+
+The locale method would apply correct locale middleware to the route once entered.
