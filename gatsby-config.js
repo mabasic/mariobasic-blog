@@ -4,25 +4,78 @@ const siteMetadata = {
   title: `Blog by Laravelista`,
   name: `Laravelista`,
   siteUrl: `https://blog.laravelista.hr`,
-  description: ``,
+  description: `Hello`,
   hero: {
     heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
     maxWidth: 652,
   },
   social: [
     {
+      name: 'github',
       url: `https://github.com/laravelista`,
     },
     {
+      name: 'patreon',
       url: `https://www.patreon.com/laravelista`,
     },
     {
+      name: 'paypal',
       url: `https://www.paypal.me/laravelista`,
-    },
+    }
   ],
 };
 
 const plugins = [
+  {
+    resolve: `gatsby-plugin-feed`,
+    options: {
+      query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allArticle } }) => {
+            return allArticle.edges.map(edge => {
+              return Object.assign({}, edge.node, {
+                description: edge.node.excerpt,
+                date: edge.node.date,
+                url: site.siteMetadata.siteUrl + edge.node.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.slug,
+                custom_elements: [{ "content:encoded": edge.node.body }],
+              })
+            })
+          },
+          query: `
+            {
+              allArticle(sort: {order: DESC, fields: date}) {
+                edges {
+                  node {
+                    excerpt
+                    date
+                    slug
+                    title
+                    body
+                  }
+                }
+              }
+            }
+          `,
+          output: "/rss.xml",
+          title: "Laravelista's RSS Feed",
+          description: "A blog without an RSS feed is just blah!"
+        },
+      ],
+    },
+  },
   {
     resolve: "@narative/gatsby-theme-novela",
     options: {
@@ -40,8 +93,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Novela by Narative`,
-      short_name: `Novela`,
+      name: `Blog by Laravelista`,
+      short_name: `Laravelista`,
       start_url: `/`,
       background_color: `#fff`,
       theme_color: `#fff`,
@@ -52,14 +105,15 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: "UA-118232427-3",
+      trackingId: "UA-102510377-3",
+      anonymize: true,
     },
   },
   {
     resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint:
-        "https://narative.us19.list-manage.com/subscribe/post?u=65ef169332a03669b9538f6ef&amp;id=c55c426282",
+        "https://laravelista.us3.list-manage.com/subscribe/post?u=f7be246192e99544e6a92ef70&amp;id=9824b15791",
     },
   },
 ];
