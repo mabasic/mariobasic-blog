@@ -1,10 +1,11 @@
 # Laravelista Blog
 
-- [y] Google Analytics tracking; GDPR compliant
+- [x] Google Analytics tracking; GDPR compliant
 - [x] Mailchimp; GDPR compliant
 - [x] RSS feed
 - [ ] Write "welcome back" post with updates from when the blog closed down.
 - [ ] Write post for "Novela" theme installation and configuration instruction.
+- [ ] Footer link to main website, privacy notice and rss feed.
 
 ## Development
 
