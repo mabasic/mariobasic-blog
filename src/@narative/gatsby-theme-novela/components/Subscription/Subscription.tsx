@@ -50,9 +50,7 @@ const Subscription: React.FunctionComponent<{}> = () => {
             Join our email list and get notified about new content
           </Headings.h3>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            fermentum ipsum et pharetra congue. Pellentesque lacus arcu,
-            vulputate vel porttitor vitae.
+            By entering your email and clicking on the Subscribe button, you give your permission to be contacted about new content on this website via Email.
           </Text>
           <Form onSubmit={handleSubmit} hasError={error}>
             <Input

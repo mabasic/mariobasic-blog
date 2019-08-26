@@ -3,6 +3,7 @@
     Full stack web developer, author of the book “A Collection of Laravel Tutorials” & creator of open-source Laravel packages.
   avatar: ./avatars/mario.jpeg
   featured: true
+  slug: mabasic
   social:
     - name: github
       url: https://github.com/mabasic
