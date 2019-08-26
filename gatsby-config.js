@@ -50,7 +50,8 @@ const plugins = [
                 date: edge.node.date,
                 url: site.siteMetadata.siteUrl + edge.node.slug,
                 guid: site.siteMetadata.siteUrl + edge.node.slug,
-                custom_elements: [{ "content:encoded": edge.node.body }],
+                // custom_elements: [{ "content:encoded": edge.node.body }],
+                author: edge.node.author
               })
             })
           },
@@ -63,7 +64,7 @@ const plugins = [
                     date
                     slug
                     title
-                    body
+                    author
                   }
                 }
               }
@@ -71,7 +72,11 @@ const plugins = [
           `,
           output: "/rss.xml",
           title: "Laravelista's RSS Feed",
-          description: "A blog without an RSS feed is just blah!"
+          description: "A blog without an RSS feed is just blah!",
+          language: "en",
+          copyright: '2019 Laravelista',
+          managingEditor: 'Mario Bašić',
+          webMaster: 'Mario Bašić',
         },
       ],
     },
