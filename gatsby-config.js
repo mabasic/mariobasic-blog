@@ -4,9 +4,9 @@ const siteMetadata = {
   title: `Blog by Laravelista`,
   name: `Laravelista`,
   siteUrl: `https://blog.laravelista.hr`,
-  description: `Hello`,
+  description: `Blog about latest things in full stack web development and in-depth posts about specific topics.`,
   hero: {
-    heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
+    heading: `After nearly two years without a blog, I'm starting over.`,
     maxWidth: 652,
   },
   social: [
