@@ -24,3 +24,14 @@ The feed is only generated when using `yarn build`, so to test it first we need 
 yarn build
 gatsby serve
 ```
+
+### Using the forked remote dependency
+
+```
+yarn upgrade {package}@{repository}#{branch}
+yarn upgrade @narative/gatsby-theme-novela@https://github.com/mabasic/gatsby-theme-novela.git#bugfix/component-shadowing
+```
+
+#### Known issues
+
+1. Can't get this method to work because the forked repository contains yarn workspaces while the theme npm package contains just the theme. **Hint:**Look into git submodules and subtree.

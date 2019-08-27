@@ -10,7 +10,7 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
-    "@narative/gatsby-theme-novela": "*",
+    "@narative/gatsby-theme-novela": "^0.4.6",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.41",
     "gatsby-plugin-feed": "^2.3.9",
