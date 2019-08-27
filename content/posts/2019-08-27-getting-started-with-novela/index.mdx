@@ -3,17 +3,301 @@ title: Getting started with Novela
 author: Mario Bašić
 date: 2019-08-27
 hero: ./images/hero.jpg
-excerpt:
+excerpt: Novela makes it easy to start publishing beautiful articles and stories with Gatsby. In this post I will show you how I have installed Novela and the modifications that I have made.
 ---
 
+[Novela](https://novela.narative.co/) is a Gatsby theme built by the team at [Narative](https://www.narative.co/), and built for everyone that loves the web. It includes multiple homepage layouts, built-in social sharing and a dark mode.
+
+You can view the source code on GitHub [narative/gatsby-theme-novela](https://github.com/narative/gatsby-theme-novela).
+
+## Features
+
+- Multiple Homepage Layouts
+- Mailchimp integration
+- Toggleable Light and Dark Mode
+
+<div className="Image__Medium">
+  <img src="./images/gatsby-theme-novela-light-dark.gif" alt="Toggleable Light and Dark Mode" />
+</div>
+
+- Simple Customization with [Theme UI](https://theme-ui.com/)
+- Show code effortlessly
+- Highlight-to-Share
+
+<div className="Image__Medium">
+  <img src="./images/gatsby-theme-novela-share.jpg" alt="Highlight-to-Share" />
+</div>
+
+- Read Time and Progress
+- Accessibility in Mind
+
+<div className="Image__Medium">
+  <img src="./images/gatsby-theme-novela-accessibility.gif" alt="Accessibility in Mind" />
+</div>
+
+## Installation
+
+If you have read the installation instructions for the theme, you know that there are two ways of installing Novela:
+
+- [Getting Started with Gatsby Starter Novela](https://github.com/narative/gatsby-theme-novela#getting-started-with-gatsby-starter-novela)
+- [Getting Started from scratch](https://github.com/narative/gatsby-theme-novela#getting-started-from-scratch)
+
+There is also an [example repository](https://github.com/narative/gatsby-theme-novela-example) which you can view to see how it all should look in the end. **Ignore that.**
+
+> I will show you a third way of installing the theme which has worked for me.
+
+In the source code of the [narative/gatsby-theme-novela](https://github.com/narative/gatsby-theme-novela) repository on GitHub you will see a directory named `www`. That directory contains the source code of the website which you can see at https://novela.narative.co.
+
+So my path of installation was like this:
+
+1. Use the [Gatsby Starter Novela](https://github.com/narative/gatsby-theme-novela#getting-started-with-gatsby-starter-novela) approach.
+2. Then manually go over the `/www` directory [files](https://github.com/narative/gatsby-theme-novela/tree/master/www) and copy/paste the things that you like.
+3. They have Google Analytics and Mailchimp integration enabled, and the `gatsby-config.js` file is differently structured. I like this.
+4. Also check the `package.json` file for dependencies.
+
+If there is anything that is giving you issues, consult with their site (`/www`) first. The starter and the example repository may be out of date, but their website is not.
+
+_**Note:** They have updated the documentation for the theme, so a lot of things that are in `/www` are also in the documentation now. You can use both for reference._
 
 
-In this post I will talk about issues that I have encountered while using Novela and how I have solved them.
+## My modifications so far
 
-I have made a few modification to the theme:
+I've made a few changes to the theme and have sent PRs for them on GitHub. You can find the links here:
 
-- an RSS feed
-- custom social icons for Patreon and PayPal
-- and a custom logo which supports light and dark mode of the theme.
+- [Bugfix/horizontal scroll #100](https://github.com/narative/gatsby-theme-novela/pull/100)
+- [Fixes subscription panel fade when having only one post. #95](https://github.com/narative/gatsby-theme-novela/pull/95)
+- [Adds patreon and paypal icons. #92](https://github.com/narative/gatsby-theme-novela/pull/92)
 
-...
+I've also discovered why component shadowing was not working for some files, but for others it was working. You can read about it here [Fixes component shadowing & other things #97](https://github.com/narative/gatsby-theme-novela/pull/97). There is also a [discussion on Twitter](https://twitter.com/_brotzky/status/1166367456501223424) about this PR and how [@chrisbiscardi](https://twitter.com/chrisbiscardi) figured out why this was happening ([More details](https://twitter.com/chrisbiscardi/status/1166382573884338182)). It will be fixed soon in [Gatsby](https://www.gatsbyjs.org/).
+
+### Adding an RSS Feed
+
+There is an open PR for this to be included in the theme iself: [[WIP] Adds RSS feed](https://github.com/narative/gatsby-theme-novela/pull/94).
+
+I will show you how to add an RSS feed to your Novela theme right now.
+
+First install the plugin `gatsby-plugin-feed`:
+
+```
+yarn add gatsby-plugin-feed
+```
+
+Then we need to configure the plugin in `gatsby-config.js`:
+
+```
+  {
+    resolve: `gatsby-plugin-feed`,
+    options: {
+      query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allArticle } }) => {
+            return allArticle.edges.map(edge => {
+              return Object.assign({}, edge.node, {
+                description: edge.node.excerpt,
+                date: edge.node.date,
+                url: site.siteMetadata.siteUrl + edge.node.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.slug,
+                // custom_elements: [{ "content:encoded": edge.node.body }],
+                author: edge.node.author
+              })
+            })
+          },
+          query: `
+            {
+              allArticle(sort: {order: DESC, fields: date}) {
+                edges {
+                  node {
+                    excerpt
+                    date
+                    slug
+                    title
+                    author
+                  }
+                }
+              }
+            }
+          `,
+          output: "/rss.xml",
+          title: "Laravelista's RSS Feed",
+          description: "A blog without an RSS feed is just blah!",
+          language: "en",
+          copyright: '2019 Laravelista',
+          managingEditor: 'Mario Bašić',
+          webMaster: 'Mario Bašić',
+          feed_url: 'https://blog.laravelista.hr/rss.xml',
+          site_url: 'https://blog.laravelista.hr',
+          image_url: 'https://blog.laravelista.hr/logo-rss.png',
+        },
+      ],
+    },
+  },
+```
+
+You can change the values for your own blog like the title, description, managingEditor, copyright, webMaster, language...
+
+One thing to notice here is the `image_url`. This is your RSS logo for feed readers. You need to provide that image. You can do that by creating a directory in the root of your repository `/` called `static`. Inside that directory place your desired logo in `.png` format and reference it code above.
+
+To verify that your RSS feed works you need to use `gatsby build` and then `gatsby serve`. The feed should be available at http://localhost:9000/rss.xml (port may vary) or you can manually chech your `/public` directory for a file called `rss.xml`.
+
+**You now have an RSS feed. Congrats!**
+
+Here are the sources for adding an RSS feed which I have followed:
+
+- https://www.gatsbyjs.org/docs/adding-an-rss-feed
+- https://www.npmjs.com/package/rss
+- https://www.gatsbyjs.org/packages/gatsby-plugin-feed
+- https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-feed
+
+### Creating a logo which supports light and dark mode
+
+For the logo I have used [Inkscape](https://inkscape.org/) since I am running Pop!_OS 18.04.
+
+When exporting your logo be sure to use "Save as" (Optimized SVG) and use these options:
+
+**Options** tab:
+
+- Number of significat digits for coordinates: 5
+- Shorten color values: Y
+- Convert CSS attributes to XML attributes: Y
+- Collapse groups: Y
+- Create groups for similar attributes: Y
+- Keep editor data: N
+- Keep unreferenced definitions: N
+- Work around renderer bugs: Y
+
+**SVG Output** tab:
+
+- Remove the XML declaration: Y
+- Remove metadata: Y
+- Remove comments: Y
+- Embed raster images: Y
+- Enable viewboxing: Y
+- Format output with line-breaks and indentation: Y
+- Indentation characters: Space
+- Depth of indentation: 1
+- Strip the "xml:space" attribute from the root SVG element: Y
+
+**IDs** tab:
+
+- Remove unused IDs: Y
+- Shorten IDs: N
+
+You will need a desktop and a mobile logo, so repeat the steps above for both. To replace the theme logo with your own you will have to use component shadowing.
+
+Create the following directory structure and file:
+
+```
+src
+  @narative
+    gatsby-theme-novela
+      components
+        Logo
+          Logo.tsx
+```
+
+Inside the `Logo.tsx` file paste the content from the [theme `Logo.tsx` file](https://github.com/narative/gatsby-theme-novela/blob/master/%40narative/gatsby-theme-novela/src/components/Logo/Logo.tsx).
+
+Open your newly created .svg files in a text editor and copy/paste them inside `Logo.tsx` file in place of the theme desktop and mobile logos.
+
+Modify your desktop SVG logo to match this:
+
+```
+width="192"
+height="23"
+viewBox="0 0 192 23"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+className="Logo__Desktop"
+```
+
+Modify your mobile SVG logo to match this:
+
+```
+width="18"
+height="23"
+viewBox="0 0 18 23"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+className="Logo__Mobile"
+```
+
+_You will probably have to adjust the viewBox to match your logo._ If your logo seems small try adjusting the height attribute.
+
+Replace all `stroke-width` with `strokeWidth`, and `clip-path` with `clipPath`. Remove all unnecessary attributes. Run the website with `yarn develop` and open the developer console to see if there are any warnings about SVG attributes being wrong.
+
+Now comes the part where you need to experiment. You need to place `fill={fill}` on appropriate tags in your SVG files depending on which part you want to have its color changed by toggling the light and dark mode on the theme.
+
+> This requires a lot of manual work to get right, but the benefits are awesome once done correctly.
+
+### Mailchimp and GDPR
+
+Since my business is located in the EU I have to comply with GDPR regulations. Because of that I require each newsletter subscriber to opt-in (give persmission) to be contacted about new content on this website via Email. I've managed to solve this by providing a message saying that if they enter their email and click on subscribe that they give their permission to be contacted via Email about new content on this website.
+
+Behind the scenes this is how I made it to work with Mailchimp.
+
+I have created a file at `/src/@narative/gatsby-theme-novela/components/Subscription/Subscription.tsx` and copied the content from the [theme repository](https://github.com/narative/gatsby-theme-novela/blob/master/%40narative/gatsby-theme-novela/src/components/Subscription/Subscription.tsx). Then inside I have changed the following code:
+
+```
+addToMailchimp(email)
+    .then(data => {
+        if (data.result === "error") {
+            throw data;
+        }
+
+        setSubscribed(true);
+        setEmail("");
+
+        setTimeout(() => {
+            setSubscribed(false);
+        }, 6000);
+    })
+    .catch(error => {
+        setError(error.msg);
+    });
+```
+
+with:
+
+```
+addToMailchimp(email, {
+        'gdpr[27301]': 'Y',
+        'gdpr[27305]': 'Y',
+        'gdpr[27309]': 'Y',
+    }, null)
+    .then(data => {
+        if (data.result === "error") {
+        throw data;
+        }
+
+        setSubscribed(true);
+        setEmail("");
+
+        setTimeout(() => {
+        setSubscribed(false);
+        }, 6000);
+    })
+    .catch(error => {
+        setError(error.msg);
+    });
+```
+
+Fields `'gdpr[27301]`, `gdpr[27305]` and `gdpr[27309]` are field names which I have located on my embed form from Mailchimp on the GDPR fields. By setting their value to `Y` you are subscribing the user and checking that he has given his permission. **Your field names may be different so double check everything.**
+
+To obtain your mailchimp list id (audience id) follow the instruction on the [plugin repository](https://github.com/benjaminhoffman/gatsby-plugin-mailchimp).
+
+## Theme tips
+
+- You can change the slug for each author my adding a `slug` field with some value to the `authors.yml` file.
+- If you need to change anything in the theme use component shadowing.

@@ -4,8 +4,8 @@
 - [x] Mailchimp; GDPR compliant
 - [x] RSS feed
 - [ ] Write "welcome back" post with updates from when the blog closed down.
-- [ ] Write post for "Novela" theme installation and configuration instruction.
-- [ ] Footer link to main website, privacy notice and rss feed.
+- [x] Write post for "Novela" theme installation and configuration instruction.
+- [ ] Footer link to main website, privacy notice and rss feed. Waiting for Gatsby.
 
 ## Development
 
