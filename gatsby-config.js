@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Blog by Laravelista`,
+  title: `Blog | Laravelista`,
   name: `Laravelista`,
   siteUrl: `https://blog.laravelista.hr`,
   description: `Blog about latest things in full stack web development and in-depth posts about specific topics.`,
@@ -27,64 +27,6 @@ const siteMetadata = {
 
 const plugins = [
   {
-    resolve: `gatsby-plugin-feed`,
-    options: {
-      query: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              site_url: siteUrl
-            }
-          }
-        }
-      `,
-      feeds: [
-        {
-          serialize: ({ query: { site, allArticle } }) => {
-            return allArticle.edges.map(edge => {
-              return Object.assign({}, edge.node, {
-                description: edge.node.excerpt,
-                date: edge.node.date,
-                url: site.siteMetadata.siteUrl + edge.node.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.slug,
-                // custom_elements: [{ "content:encoded": edge.node.body }],
-                author: edge.node.author
-              })
-            })
-          },
-          query: `
-            {
-              allArticle(sort: {order: DESC, fields: date}) {
-                edges {
-                  node {
-                    excerpt
-                    date
-                    slug
-                    title
-                    author
-                  }
-                }
-              }
-            }
-          `,
-          output: "/rss.xml",
-          title: "Laravelista's RSS Feed",
-          description: "A blog without an RSS feed is just blah!",
-          language: "en",
-          copyright: '2019 Laravelista',
-          managingEditor: 'Mario Bašić',
-          webMaster: 'Mario Bašić',
-          feed_url: 'https://blog.laravelista.hr/rss.xml',
-          site_url: 'https://blog.laravelista.hr',
-          image_url: 'https://blog.laravelista.hr/logo-rss.png',
-        },
-      ],
-    },
-  },
-  {
     resolve: "@narative/gatsby-theme-novela",
     options: {
       contentPosts: "content/posts",
@@ -96,12 +38,13 @@ const plugins = [
         local: true,
         contentful: false,
       },
+      articlePermalinkFormat: ":year/:month/:day/:slug"
     },
   },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Blog by Laravelista`,
+      name: `Blog | Laravelista`,
       short_name: `Laravelista`,
       start_url: `/`,
       background_color: `#fff`,
