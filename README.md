@@ -5,7 +5,7 @@
 - [x] RSS feed
 - [ ] Write "welcome back" post with updates from when the blog closed down.
 - [x] Write post for "Novela" theme installation and configuration instruction.
-- [ ] Footer link to main website, privacy notice and rss feed. Waiting for Gatsby.
+- [x] Footer link to main website & privacy notice. ~~Waiting for Gatsby~~.
 
 ## Development
 
