@@ -1289,10 +1289,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@narative/gatsby-theme-novela@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@narative/gatsby-theme-novela/-/gatsby-theme-novela-0.6.4.tgz#e718e99aaf670a35ce0d1758a834f028eec79945"
-  integrity sha512-P61VPeUYqf71vAk8zDs6+7+b6xlw2N70XHhfFzANsf+v9O5kPVnOU7g8O8coj/0PA3TcT0V1wXGI6IigufILCg==
+"@narative/gatsby-theme-novela@^0.6.5":
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/@narative/gatsby-theme-novela/-/gatsby-theme-novela-0.6.5.tgz#2f824ee1b03642160672dd29f0dd472c611e08fb"
+  integrity sha512-TxaEk18yEH+orc3QJ9MHvuZDUMBm3oH1bPuO3vm2exwXZ82vM2igKDo8bdhtH/Gen7/2FxlGgYbtNEQttVGNow==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@emotion/styled" "^10.0.14"
@@ -4685,7 +4685,7 @@ dot-prop@^5.1.0:
   dependencies:
     is-obj "^2.0.0"
 
-dotenv@^8.0.0, dotenv@^8.1.0:
+dotenv@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.1.0.tgz#d811e178652bfb8a1e593c6dd704ec7e90d85ea2"
   integrity sha512-GUE3gqcDCaMltj2++g6bRQ5rBJWtkWTmqmD0fo1RnnMuUqHNCt2oTPeDnS9n6fKYvlhn7AeBkb38lymBtWBQdA==
@@ -6330,7 +6330,7 @@ gatsby-remark-typescript@^0.0.12:
     prettier "^1.18.2"
     unist-util-visit "^1.4.1"
 
-gatsby-source-filesystem@^2.1.6, gatsby-source-filesystem@^2.1.9:
+gatsby-source-filesystem@^2.1.6:
   version "2.1.21"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.21.tgz#4d52383887bfa40c484523372f9629e92af6769a"
   integrity sha512-CYkj95vp6kNcO/UFYCYmJ78djJZAX1zO2hQyptFNRhto4J5SWB7Zy8Jc0r7sCitMeakfvNOT72y3r7LjcA0dNw==

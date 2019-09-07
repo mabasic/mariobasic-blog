@@ -10,13 +10,11 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
-    "@narative/gatsby-theme-novela": "^0.6.4",
-    "dotenv": "^8.0.0",
+    "@narative/gatsby-theme-novela": "^0.6.5",
     "gatsby": "^2.13.41",
     "gatsby-plugin-google-analytics": "^2.1.6",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.2.4",
-    "gatsby-source-filesystem": "^2.1.9",
     "gh-pages": "2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

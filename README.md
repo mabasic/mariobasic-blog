@@ -1,11 +1,23 @@
 # Laravelista Blog
 
-- [x] Google Analytics tracking; GDPR compliant
-- [x] Mailchimp; GDPR compliant
+- [x] Google Analytics tracking; **GDPR compliant**
+- [x] Mailchimp; **GDPR compliant**
+- [x] Structured data for SEO
+- [x] 404 Page not found
+- [x] Privacy notice
+- [x] Secret posts
 - [x] RSS feed
-- [ ] Write "welcome back" post with updates from when the blog closed down.
-- [x] Write post for "Novela" theme installation and configuration instruction.
-- [x] Footer link to main website & privacy notice. ~~Waiting for Gatsby~~.
+
+## Modifications from the default theme
+
+- Added button to 404 page to go to the home page.
+- Added links in footer.
+- Changed 404 page text.
+- Changed logo ofc.
+- Changed subscription text.
+- Changed subscription to be GDPR compliant.
+- Removed articles gradient from the home page.
+- Removed footer gradient.
 
 ## Development
 
@@ -16,7 +28,7 @@ yarn install
 yarn develop
 ```
 
-### Testing RSS feed
+### Testing RSS feed and/or Structured data
 
 The feed is only generated when using `yarn build`, so to test it first we need to build and then serve:
 
