@@ -46,4 +46,4 @@ yarn upgrade @narative/gatsby-theme-novela@https://github.com/mabasic/gatsby-the
 
 #### Known issues
 
-1. Can't get this method to work because the forked repository contains yarn workspaces while the theme npm package contains just the theme. **Hint:**Look into git submodules and subtree.
+1. Can't get this method to work because the forked repository contains yarn workspaces while the theme npm package contains just the theme. **Hint:** Look into git submodules and subtree.
