@@ -19,6 +19,10 @@ const siteMetadata = {
     {
       name: 'paypal',
       url: `https://www.paypal.me/laravelista`,
+    },
+    {
+      name: 'digitalocean',
+      url: `https://m.do.co/c/1bae3920f1e0`,
     }
   ],
 };
