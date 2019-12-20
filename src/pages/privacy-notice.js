@@ -19,21 +19,21 @@ function PrivacyNotice() {
           <Headings.h1>Privacy Notice</Headings.h1>
         </div>
         <Paragraph>
-            <b>This notice obligates us to protect user privacy and personal data provided via this website.</b>
+            <b>This notice obligates me to protect user privacy and personal data provided via this website.</b>
         </Paragraph>
 
         <Paragraph>
-            This notice provides information about the types of information we may collect from you when you visit our website and explains how we use such data, as well as describes the steps we take in order to protect them. The notice also describes the options you have with regard to the collection and use of your data when you visit our website.
+            This notice provides information about the types of information I may collect from you when you visit my website and explains how I use such data, as well as describes the steps I take in order to protect them. The notice also describes the options you have with regard to the collection and use of your data when you visit my website.
         </Paragraph>
 
         <Headings.h2>Newsletter subscription</Headings.h2>
         <Paragraph>
-            We are using <Anchor href="https://mailchimp.com/legal/privacy/">Mailchimp</Anchor> for sending newsletter emails and collecting data on subscribers (e-mail address, first and last name, date of subscription, consent). By entering your email in the newsletter subscription form and clicking on the Subscribe button, you give your permission to be contacted about new content on this website via Email. Your data is being kept until you ask for it to be deleted from our newsletter. In any moment you can unsubscribe from the newsletter by clicking on the link at the bottom of the newsletter email or by sending us an email at <Anchor href="mailto:mario@laravelista.hr">mario@laravelista.hr</Anchor>.
+            I am using <Anchor href="https://mailchimp.com/legal/privacy/">Mailchimp</Anchor> for sending newsletter emails and collecting data on subscribers (e-mail address, first and last name, date of subscription, consent). By entering your email in the newsletter subscription form and clicking on the Subscribe button, you give your permission to be contacted about new content on this website via Email. Your data is being kept until you ask for it to be deleted from my newsletter. In any moment you can unsubscribe from the newsletter by clicking on the link at the bottom of the newsletter email or by sending me an email at <Anchor href="mailto:mario@laravelista.hr">mario@laravelista.hr</Anchor>.
         </Paragraph>
 
         <Headings.h2>Website Monitoring</Headings.h2>
         <Paragraph>
-            We use <Anchor href="https://policies.google.com/technologies/partner-sites" rel="nofollow">Google Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency.
+            I use <Anchor href="https://policies.google.com/technologies/partner-sites" rel="nofollow">Google Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency.
         </Paragraph>
 
       </Section>

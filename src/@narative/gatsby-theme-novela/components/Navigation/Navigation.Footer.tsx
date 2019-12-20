@@ -37,7 +37,7 @@ function Footer() {
         <HoritzontalRule />
         <FooterContainer>
           <FooterText>
-            © {new Date().getFullYear()} <a css={link} href="https://laravelista.hr">{name}</a> <Link css={link} to="/privacy-notice">Privacy Notice</Link>
+            © {new Date().getFullYear()} <a css={link} href="https://mariobasic.com">{name}</a> <Link css={link} to="/privacy-notice">Privacy Notice</Link>
           </FooterText>
           <div>
             <SocialLinks links={social} />

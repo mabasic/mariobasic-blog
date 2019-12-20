@@ -1,10 +1,10 @@
 const siteMetadata = {
-  title: `Blog | Laravelista`,
-  name: `Laravelista`,
-  siteUrl: `https://blog.laravelista.hr`,
+  title: `Blog | Mario Bašić`,
+  name: `Mario Bašić`,
+  siteUrl: `https://blog.mariobasic.com`,
   description: `Blog about latest things in full stack web development and in-depth posts about specific topics.`,
   hero: {
-    heading: `After nearly two years without a blog, I'm starting over.`,
+    heading: `Currently in the process of rebranding myself. Work in progress...`,
     maxWidth: 652,
   },
   social: [
@@ -46,8 +46,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Blog | Laravelista`,
-      short_name: `Laravelista`,
+      name: `Blog | Mario Bašić`,
+      short_name: `Mario Bašić`,
       start_url: `/`,
       background_color: `#fff`,
       theme_color: `#fff`,
