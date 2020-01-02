@@ -4,7 +4,7 @@ const siteMetadata = {
   siteUrl: `https://blog.mariobasic.com`,
   description: `Blog about latest things in full stack web development and in-depth posts about specific topics.`,
   hero: {
-    heading: `Currently in the process of rebranding myself. Work in progress...`,
+    heading: `Rebranding complete. Welcome to my new Gatsby Powered Blog!`,
     maxWidth: 652,
   },
   social: [
