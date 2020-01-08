@@ -47,7 +47,7 @@ const Subscription: React.FunctionComponent<{}> = () => {
       <SubscriptionContainer>
         <Content>
           <Headings.h3>
-            Join our email list and get notified about new content
+            Join my email list and get notified about new content
           </Headings.h3>
           <Text>
             By entering your email and clicking on the Subscribe button, you give your permission to be contacted about new content on this website via Email.
