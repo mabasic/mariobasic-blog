@@ -1,6 +1,6 @@
 - name: Mario Bašić
   bio: |
-    Full stack web developer, author of the book “A Collection of Laravel Tutorials” & creator of open-source Laravel packages.
+    Full stack developer from Croatia, specialized in building web & mobile applications. Author of the book: “A Collection of Laravel Tutorials”, creator of open-source projects, and a father.
   avatar: ./avatars/mario.jpeg
   featured: true
   slug: mabasic
