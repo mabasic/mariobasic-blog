@@ -1,4 +1,4 @@
-# Laravelista Blog
+# Mario Bašić's personal website + blog
 
 - [x] Google Analytics tracking; **GDPR compliant**
 - [x] Mailchimp; **GDPR compliant**

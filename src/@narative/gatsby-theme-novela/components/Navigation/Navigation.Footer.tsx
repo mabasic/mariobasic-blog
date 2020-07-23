@@ -40,7 +40,7 @@ function Footer() {
             © {new Date().getFullYear()} <a css={link} href="https://mariobasic.com">{name}</a> <Link css={link} to="/privacy-notice">Privacy Notice</Link>
           </FooterText>
           <div>
-            <SocialLinks links={social} />
+            <SocialLinks fill = '#73737D' links={social} />
           </div>
         </FooterContainer>
       </Section>
