@@ -33,7 +33,7 @@ function PrivacyNotice() {
 
         <Headings.h2>Website Monitoring</Headings.h2>
         <Paragraph>
-            I use <Anchor href="https://policies.google.com/technologies/partner-sites" rel="nofollow">Google Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency.
+            I use <Anchor href="https://plausible.io/" rel="nofollow">Plausible Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency. It is GDPR compliant and the <Anchor href="https://plausible.laravelista.com/mariobasic.com">data collected is publicaly available</Anchor>.
         </Paragraph>
 
       </Section>

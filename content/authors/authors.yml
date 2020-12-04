@@ -1,6 +1,6 @@
 - name: Mario Bašić
   bio: |
-    Full stack developer from Croatia, specialized in building web & mobile applications. Author of the book: “A Collection of Laravel Tutorials”, creator of open-source projects, and a father.
+    Author of the book: “A Collection of Laravel Tutorials”. Cofounder of <a href="#">Go Visit</a> and <a href="#">Visit Murter</a> information tourist portal. Creator of open-source projects.
   avatar: ./avatars/mario.jpeg
   featured: true
   slug: mabasic

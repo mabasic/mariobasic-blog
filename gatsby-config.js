@@ -1,10 +1,10 @@
 const siteMetadata = {
-  title: `Blog | Mario Bašić`,
+  title: `Mario Bašić - Full Stack Developer`,
   name: `Mario Bašić`,
   siteUrl: `https://blog.mariobasic.com`,
-  description: `Blog about latest things in full stack web development and in-depth posts about specific topics.`,
+  description: ``,
   hero: {
-    heading: `GitHub Archive Program 02/02/2020. My legacy for future generations.`,
+    heading: `I'm a full Stack PHP/JavaScript developer from Croatia.`,
     maxWidth: 652,
   },
   social: [
@@ -46,7 +46,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Blog | Mario Bašić`,
+      name: `Mario Bašić - Full Stack Developer`,
       short_name: `Mario Bašić`,
       start_url: `/`,
       background_color: `#fff`,
@@ -56,17 +56,20 @@ const plugins = [
     },
   },
   {
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      trackingId: "UA-102510377-3",
-      anonymize: true,
-    },
-  },
-  {
     resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint:
         "https://laravelista.us3.list-manage.com/subscribe/post?u=f7be246192e99544e6a92ef70&amp;id=9824b15791",
+    },
+  },
+  {
+    resolve: `gatsby-plugin-plausible`,
+    options: {
+      domain: `mariobasic.com`,
+      // Currently when using a custom domain with self-hosted plausible, the script
+      // path will incorrectly point to index.js. Here we force the correct path...
+      // https://github.com/pixelplicity/gatsby-plugin-plausible/issues/49
+      customDomain: `plausible.laravelista.com/js/plausible.js?original=`,
     },
   },
 ];
