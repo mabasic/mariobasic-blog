@@ -18,7 +18,8 @@ const siteQuery = graphql`
             social {
               url
               name
-            }
+            },
+            analytics
           }
         }
       }
@@ -28,7 +29,7 @@ const siteQuery = graphql`
 
 function Footer() {
   const results = useStaticQuery(siteQuery);
-  const { name, social } = results.allSite.edges[0].node.siteMetadata;
+  const { name, social, analytics } = results.allSite.edges[0].node.siteMetadata;
 
   return (
     <>
@@ -37,7 +38,7 @@ function Footer() {
         <HoritzontalRule />
         <FooterContainer>
           <FooterText>
-            © {new Date().getFullYear()} <a css={link} href="https://mariobasic.com">{name}</a> <Link css={link} to="/privacy-notice">Privacy Notice</Link>
+            © {new Date().getFullYear()} <a css={link} href="https://mariobasic.com">{name}</a> <Link css={link} to="/privacy-notice">Privacy Notice</Link> <a css={link} target="_blank" href={analytics}>Stats</a>
           </FooterText>
           <div>
             <SocialLinks fill = '#73737D' links={social} />

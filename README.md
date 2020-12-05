@@ -1,7 +1,7 @@
-# Mario Bašić's personal website + blog
+# Mario Bašić's website + blog
 
-- [x] Google Analytics tracking; **GDPR compliant**
-- [x] Mailchimp; **GDPR compliant**
+- [x] Plausible Analytics; **GDPR compliant**
+- [x] Mailchimp Newsletter; **GDPR compliant**
 - [x] Structured data for SEO
 - [x] 404 Page not found
 - [x] Privacy notice

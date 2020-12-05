@@ -2,7 +2,8 @@ const siteMetadata = {
   title: `Mario Bašić - Full Stack Developer`,
   name: `Mario Bašić`,
   siteUrl: `https://blog.mariobasic.com`,
-  description: ``,
+  description: `I'm a full Stack PHP/JavaScript developer from Croatia.`,
+  analytics: `https://plausible.laravelista.com/mariobasic.com`,
   hero: {
     heading: `I'm a full Stack PHP/JavaScript developer from Croatia.`,
     maxWidth: 652,

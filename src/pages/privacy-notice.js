@@ -9,8 +9,9 @@ import Paragraph from "../components/Paragraph";
 
 import { css } from "@emotion/core";
 import mediaqueries from "@styles/media";
+import { graphql } from 'gatsby'
 
-function PrivacyNotice() {
+function PrivacyNotice({ data }) {
   return (
     <Layout>
       <SEO title="Privacy Notice" />
@@ -26,14 +27,27 @@ function PrivacyNotice() {
             This notice provides information about the types of information I may collect from you when you visit my website and explains how I use such data, as well as describes the steps I take in order to protect them. The notice also describes the options you have with regard to the collection and use of your data when you visit my website.
         </Paragraph>
 
-        <Headings.h2>Newsletter subscription</Headings.h2>
+        <Headings.h2>Analytics</Headings.h2>
+        <Paragraph>
+            I use a self-hosted version of <Anchor href="https://plausible.io/" rel="nofollow">Plausible Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency. It is an open source web analytics software, built in the EU, with no cookies, no tracking and no personal data collection. <Anchor target="_blank" href={data.site.siteMetadata.analytics}>Stats are open to the public.</Anchor>
+        </Paragraph>
+
+        <Headings.h2>Cookies</Headings.h2>
+        <Paragraph>This website does not use or place any cookies in the user's browser.</Paragraph>
+
+        <Headings.h2>Third Party Services</Headings.h2>
+
+        <Headings.h3>Mailchimp</Headings.h3>
         <Paragraph>
             I am using <Anchor href="https://mailchimp.com/legal/privacy/">Mailchimp</Anchor> for sending newsletter emails and collecting data on subscribers (e-mail address, first and last name, date of subscription, consent). By entering your email in the newsletter subscription form and clicking on the Subscribe button, you give your permission to be contacted about new content on this website via Email. Your data is being kept until you ask for it to be deleted from my newsletter. In any moment you can unsubscribe from the newsletter by clicking on the link at the bottom of the newsletter email or by sending me an email at <Anchor href="mailto:mario@laravelista.hr">mario@laravelista.hr</Anchor>.
         </Paragraph>
 
-        <Headings.h2>Website Monitoring</Headings.h2>
+        <Headings.h2>Contact</Headings.h2>
         <Paragraph>
-            I use <Anchor href="https://plausible.io/" rel="nofollow">Plausible Analytics</Anchor> for the purpose of collecting and analyzing website visit frequency. It is GDPR compliant and the <Anchor href="https://plausible.laravelista.com/mariobasic.com">data collected is publicaly available</Anchor>.
+          <b>Mario Bašić</b>, Laravelista<br />
+          Markov Jose 1<br />
+          Murter, HR 22243<br />
+          P: 022-435-450
         </Paragraph>
 
       </Section>
@@ -42,6 +56,16 @@ function PrivacyNotice() {
 }
 
 export default PrivacyNotice;
+
+export const query = graphql`
+{
+  site {
+    siteMetadata {
+      analytics
+    }
+  }
+}
+`
 
 const ARTICLE_WIDTH = css`
   width: 100%;

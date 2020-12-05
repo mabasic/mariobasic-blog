@@ -1,6 +1,6 @@
 - name: Mario Bašić
   bio: |
-    Author of the book: “A Collection of Laravel Tutorials”. Cofounder of <a href="#">Go Visit</a> and <a href="#">Visit Murter</a> information tourist portal. Creator of open-source projects.
+    Author of the book: “<a href="https://mariobasic.com/a-collection-of-laravel-tutorials">A Collection of Laravel Tutorials</a>”. Co-founder @<a target="_blank" href="https://govisit.hr">Go Visit</a>. Single developer @<a target="_blank" href="https://visitmurter.com">Visit Murter</a>. Open-source enthusiast.
   avatar: ./avatars/mario.jpeg
   featured: true
   slug: mabasic
